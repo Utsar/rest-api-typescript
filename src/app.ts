@@ -1,12 +1,16 @@
 import express from "express"
 import config from "config"
 import connect from "./utils/connect"
+import logger from "./utils/logger"
+import Routes from "./routes"
 
 const app = express()
 
 const PORT = config.get<number>("port")
 
 app.listen(PORT, async () =>{
-    console.log(`app is running on port: ${PORT}`)
+    logger.info(`app is running on port: ${PORT}`)
     await connect()
+
+    Routes(app)
 })
