@@ -34,7 +34,7 @@ userSchema.pre("save", async function(next) {
     return next()
 })
 
-// when user loggs in we compare their password with the hash
+// when user logs in we compare their password with the hash
 
 userSchema.methods.comparePassword = async function(candidatePassword: string):Promise<boolean>{
     const user = this as UserDocument
